@@ -1,9 +1,10 @@
-
+import s from './Header.module.css';
 
 const Header = () => {
 
     return (
-        <div>
+        <div className={s.container}>
+            <h1 className={s.title}>Transactions App</h1>
 
         </div>
     )
