@@ -10,4 +10,4 @@ const ImportExportBtns: React.FC  = () => {
     )
 }
 
-export default ImportExportBtns;
+export  {ImportExportBtns};

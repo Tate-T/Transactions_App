@@ -24,4 +24,4 @@ const TransactionsTypeList: React.FC  = () => {
     )
 }
 
-export default TransactionsTypeList;
+export  {TransactionsTypeList};

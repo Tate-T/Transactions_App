@@ -10,11 +10,14 @@ const [status, setStatus]= useState<ISelect>([]);
 const idStatus = uuid();
 
 const chooseStatus = () => {
-    setStatus([...status, {
-        id: idStatus,
-        title: value,
-        isSelect: false
-    }])
+    if (value) {
+        setStatus([...status, {
+            id: idStatus,
+            title: value,
+            isSelect: false
+        }])
+    }
+    setStatus('')
 }
 
     return (
@@ -41,4 +44,4 @@ const chooseStatus = () => {
     )
 }
 
-export default TransactionsStatusList;
+export  {TransactionsStatusList};

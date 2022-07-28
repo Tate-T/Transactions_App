@@ -165,4 +165,4 @@ const TransactionsTable: React.FC  = () => {
     )
 }
 
-export default TransactionsTable;
+export  {TransactionsTable};

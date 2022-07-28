@@ -1,5 +1,5 @@
 import './App.css';
-import {ISelect} from './types/data'
+// import ISelect from './types/data';
 import {Header} from './components/Header/Header';
 import {TransactionsList} from './components/TransactionsList/TransactionsList';
 import {TransactionsStatusList} from './components/TransactionsStatusList/TransactionsStatusList';
@@ -28,4 +28,4 @@ const App: React.FC = ()=> {
   );
 }
 
-export default App;
+export  {App};
