@@ -4,8 +4,8 @@ const ImportExportBtns: React.FC  = () => {
 
     return (
         <div className={s.btns}>
-            <button className={s.btn}>Import</button>
-            <button className={s.btn}>Export</button>
+            <a href="#" download className={s.btn}>Import</a>
+            <a href="#" download className={s.btn}>Export</a>
         </div>
     )
 }

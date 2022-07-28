@@ -1,17 +1,22 @@
+import { TransactionsStatusList } from '../TransactionsStatusList/TransactionsStatusList';
+import { ISelect } from '../../types/data';
 import s from './TransactionsList.module.css';
 
-const TransactionsList: React.FC  = () => {
+const TransactionsList: React.FC<ISelect>  = (props) => {
 
     return (
         <div className={s.container}>
             <div className={s.title}>
                 <h2 >Transactions</h2>
             </div>
-            <ul className={s.list}>
+            <div>
+                {props.map(el=> <TransactionsStatusList key={el.id} {...el}  className={s.list}/>)}
+            </div>
+            {/* <ul className={s.list}>
                 <li className={s.transaction}>
                     transaction
                 </li>
-            </ul>
+            </ul> */}
         </div>
     )
 }

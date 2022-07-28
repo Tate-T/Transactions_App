@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import uuid from 'uuid';
 import {ISelect} from '../../types/data';
-import s from './TransactionsStatusList.module.css';
+// import s from './TransactionsStatusList.module.css';
 
 const TransactionsStatusList: React.FC  = () => {
 const [value, setValue] = useState('');
 const [status, setStatus]= useState<ISelect>([]);
+// const [status, setStatus]= useState([{number || string, string, boolean}]);
 
-const idStatus = uuid();
+
+const idStatus: Number = uuid();
 
 const chooseStatus = () => {
     if (value) {
