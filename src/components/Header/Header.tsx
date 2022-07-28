@@ -1,6 +1,6 @@
 import s from './Header.module.css';
 
-const Header = () => {
+const Header: React.FC = () => {
 
     return (
         <div className={s.container}>

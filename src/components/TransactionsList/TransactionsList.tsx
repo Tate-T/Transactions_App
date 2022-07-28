@@ -1,6 +1,6 @@
 import s from './TransactionsList.module.css';
 
-const TransactionsList = () => {
+const TransactionsList: React.FC  = () => {
 
     return (
         <div className={s.container}>

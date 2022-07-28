@@ -1,12 +1,13 @@
 import './App.css';
-import Header from './components/Header/Header';
-import TransactionsList from './components/TransactionsList/TransactionsList';
-import TransactionsStatusList from './components/TransactionsStatusList/TransactionsStatusList';
-import TransactionsTypeList from './components/TransactionsTypeList/TransactionsTypeList';
-import ImportExportBtns from './components/ImportExportBtns/ImportExportBtns';
-import TransactionsTable from './components/TransactionsTable/TransactionsTable';
+import {ISelect} from './types/data'
+import {Header} from './components/Header/Header';
+import {TransactionsList} from './components/TransactionsList/TransactionsList';
+import {TransactionsStatusList} from './components/TransactionsStatusList/TransactionsStatusList';
+import {TransactionsTypeList} from './components/TransactionsTypeList/TransactionsTypeList';
+import {ImportExportBtns} from './components/ImportExportBtns/ImportExportBtns';
+import {TransactionsTable} from './components/TransactionsTable/TransactionsTable';
 
-function App() {
+const App: React.FC = ()=> {
   return (
     <div className="App">
       <Header />

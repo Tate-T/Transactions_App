@@ -1,6 +1,6 @@
 import s from './ImportExportBtns.module.css';
 
-const ImportExportBtns = () => {
+const ImportExportBtns: React.FC  = () => {
 
     return (
         <div className={s.btns}>

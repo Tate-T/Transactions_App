@@ -1,6 +1,6 @@
 import s from './TransactionsTable.module.css';
 
-const TransactionsTable = () => {
+const TransactionsTable: React.FC  = () => {
 
     return (
         <div className={s.listScroll}>

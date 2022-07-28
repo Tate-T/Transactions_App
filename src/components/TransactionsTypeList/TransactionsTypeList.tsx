@@ -1,6 +1,6 @@
 import s from './TransactionsTypeList.module.css';
 
-const TransactionsTypeList = () => {
+const TransactionsTypeList: React.FC  = () => {
 
     return (
         <div className={s.input}>
