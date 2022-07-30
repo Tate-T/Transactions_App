@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './TransactionsTypeList.module.css';
 
 const TransactionsTypeList: React.FC  = () => {

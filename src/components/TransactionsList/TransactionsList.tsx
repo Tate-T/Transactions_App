@@ -1,3 +1,4 @@
+import React from 'react';
 import { TransactionsStatusList } from '../TransactionsStatusList/TransactionsStatusList';
 import { ISelect } from '../../types/data';
 import s from './TransactionsList.module.css';

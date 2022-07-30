@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 // import ISelect from './types/data';
 import {Header} from './components/Header/Header';
@@ -12,7 +13,7 @@ const App: React.FC = ()=> {
     <div className="App">
       <Header />
       <div style={{ display: 'flex' }}>
-        <TransactionsList />
+        {/* <TransactionsList /> */}
         <div style={{ marginLeft: '10px' }}>
           <div style={{ display: 'flex', marginTop: '10px' }}>
             <div style={{ margin: '0px 450px 10px 0px', display: 'flex' }}>

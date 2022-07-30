@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import uuid from 'uuid';
 import {ISelect} from '../../types/data';

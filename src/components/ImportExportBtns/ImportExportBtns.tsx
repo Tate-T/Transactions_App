@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './ImportExportBtns.module.css';
 
 const ImportExportBtns: React.FC  = () => {

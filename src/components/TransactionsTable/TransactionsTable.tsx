@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './TransactionsTable.module.css';
 
 const TransactionsTable: React.FC  = () => {
