@@ -5,7 +5,7 @@ const Container = styled.div`
     
 `
 
-const List = styled.h1`
+const List = styled.div`
     margin-left: 10px;
     display: block;
 `

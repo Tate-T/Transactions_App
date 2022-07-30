@@ -1,6 +1,6 @@
 import React from 'react';
 import { TransactionsStatusList } from '../TransactionsStatusList/TransactionsStatusList';
-import { ISelect } from '../../types/data';
+// import { ISelect } from '../../types/data';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -15,9 +15,10 @@ const Title = styled.h1`
     margin-left: 5px;
     font-size: 16px;
     background-color: cornflowerblue;
+    text-align: center;
 `
 
-const List = styled.h1`
+const List = styled.ul`
     margin: 0;
     padding: 0;
     border-top: 2px solid;
@@ -26,15 +27,19 @@ const List = styled.h1`
 // const ListItem = styled.h1`
 //     margin-left: 25px;
 // `
-
-const TransactionsList: React.FC<ISelect>  = (props) => {
-
+let props: {
+    id: number;
+    title: string;
+    isSelect: boolean
+  }
+const TransactionsList: React.FC  = (props) => {
+   
     return (
         <Container>
             <Title>Transactions</Title>
             <List>
                 {/* {props.map(el=> <TransactionsStatusList key={el.id} {...el}/>)} */}
-                <TransactionsStatusList />
+                {/* <TransactionsStatusList /> */}
             </List>
         </Container>
     )

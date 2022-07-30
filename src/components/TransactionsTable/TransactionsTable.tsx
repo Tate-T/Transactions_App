@@ -7,8 +7,10 @@ const Container = styled.div`
     width: 100%;
 `
 
-const TableRow = styled.h1`
-    text-align: center;
+const TableRow = styled.div`
+    /* text-align: center; */
+    font-size: 14px;
+    font-weight: 400;
 `
 
 
@@ -18,57 +20,60 @@ const TransactionsTable: React.FC  = () => {
     return (
         <Container>
             <table>
-                <thead>
+                <thead >
+                <TableRow>
                     <tr>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '100px' }}
                         >
                             Id
                         </th>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '200px' }}
                         >
                             Status
                         </th>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '300px' }}
                         >
                             Type
                         </th>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '300px' }}
                         >
                             Client name
                         </th>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '200px' }}
                         >
                             Amount
                         </th>
                         <th
-                            style={{ borderBottom: '1px solid #E0E5EB' }}
+                            style={{ borderBottom: '1px solid black', width: '300px' }}
                         >
                             Action
                         </th>
                     </tr>
+                </TableRow>
                 </thead>
 
-                <tbody>
+                <tbody >
                     <TableRow>
-                    <tr>
+                    <tr >
                         {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
                             <Training className={s.marginBook} />
                             {title}
                         </td> */}
-                        <td>1</td>
-                        <td>pending</td>
-                        <td>refill</td>
-                        <td>name</td>
-                        <td>100.00</td>
+                        <td style={{ width: '100px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>1</td>
+                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>pending</td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>refill</td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>name</td>
+                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>100.00</td>
                         {/* {!isTraining && ( */}
-                        <td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB', paddingBottom: '5px' }}>
                             <button
                                 type="button"
+                                style={{ marginRight: '10px' }}
                                 // onClick={() => editTransactio(_id)}
                             >
                                 Edit
@@ -89,15 +94,16 @@ const TransactionsTable: React.FC  = () => {
                             <Training className={s.marginBook} />
                             {title}
                         </td> */}
-                        <td>1</td>
-                        <td>pending</td>
-                        <td>refill</td>
-                        <td>name</td>
-                        <td>100.00</td>
+                        <td style={{ width: '100px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>1</td>
+                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>pending</td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>refill</td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>name</td>
+                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>100.00</td>
                         {/* {!isTraining && ( */}
-                        <td>
+                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB', paddingBottom: '5px'  }}>
                             <button
                                 type="button"
+                                style={{ marginRight: '10px' }}
                                 // onClick={() => editTransactio(_id)}
                             >
                                 Edit
@@ -117,15 +123,16 @@ const TransactionsTable: React.FC  = () => {
                             <Training className={s.marginBook} />
                             {title}
                         </td> */}
-                        <td>1</td>
-                        <td>pending</td>
-                        <td>refill</td>
-                        <td>name</td>
-                        <td>100.00</td>
+                        <td style={{ width: '100px', textAlign: 'center' }}>1</td>
+                        <td style={{ width: '200px', textAlign: 'center' }}>pending</td>
+                        <td style={{ width: '300px', textAlign: 'center' }}>refill</td>
+                        <td style={{ width: '300px', textAlign: 'center' }}>name</td>
+                        <td style={{ width: '200px', textAlign: 'center' }}>100.00</td>
                         {/* {!isTraining && ( */}
-                        <td>
+                        <td style={{ width: '300px', textAlign: 'center' }}>
                             <button
                                 type="button"
+                                style={{ marginRight: '10px' }}
                                 // onClick={() => editTransactio(_id)}
                             >
                                 Edit

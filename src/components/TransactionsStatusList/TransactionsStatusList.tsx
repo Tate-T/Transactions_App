@@ -5,10 +5,10 @@ import {ISelect} from '../../types/data';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    
+    padding: 0;
 `
 
-const List = styled.h1`
+const List = styled.div`
     color: black;
     display: block;
 `
@@ -41,7 +41,7 @@ const [value, setValue] = useState('');
                 list="transactionsStatus"
                 autoComplete='off'
                 placeholder="status"
-                                value={value}
+                value={value}
                 onChange={e=> setValue(e.target.value)}
             />
             </List>
