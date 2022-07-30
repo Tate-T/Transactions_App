@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {transactionsReducer} from './transactions/transactions-reducer';
+import transactionsReducer from './transactions/transactions-reducer';
 
-export const store = configureStore({
+ const store = configureStore({
   reducer: {
     transactions: transactionsReducer,
   },
 })
+
+export {store}
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
