@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 // import ISelect from './types/data';
 import {Header} from './components/Header/Header';
 import {TransactionsList} from './components/TransactionsList/TransactionsList';

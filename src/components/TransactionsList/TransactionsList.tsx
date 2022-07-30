@@ -1,24 +1,42 @@
 import React from 'react';
 import { TransactionsStatusList } from '../TransactionsStatusList/TransactionsStatusList';
 import { ISelect } from '../../types/data';
-import s from './TransactionsList.module.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    margin-top: 10px;
+    border: 2px solid;
+    width: 200px;
+    min-height: 200px;
+`
+const Title = styled.h1`
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 16px;
+    background-color: cornflowerblue;
+`
+
+const List = styled.h1`
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid;
+`
+
+// const ListItem = styled.h1`
+//     margin-left: 25px;
+// `
 
 const TransactionsList: React.FC<ISelect>  = (props) => {
 
     return (
-        <div className={s.container}>
-            <div className={s.title}>
-                <h2 >Transactions</h2>
-            </div>
-            <div>
-                {props.map(el=> <TransactionsStatusList key={el.id} {...el}  className={s.list}/>)}
-            </div>
-            {/* <ul className={s.list}>
-                <li className={s.transaction}>
-                    transaction
-                </li>
-            </ul> */}
-        </div>
+        <Container>
+            <Title>Transactions</Title>
+            <List>
+                {/* {props.map(el=> <TransactionsStatusList key={el.id} {...el}/>)} */}
+                <TransactionsStatusList />
+            </List>
+        </Container>
     )
 }
 

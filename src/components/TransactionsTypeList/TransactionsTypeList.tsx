@@ -1,19 +1,31 @@
 import React from 'react';
-import s from './TransactionsTypeList.module.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    
+`
+
+const List = styled.h1`
+    margin-left: 10px;
+    display: block;
+`
+
 
 const TransactionsTypeList: React.FC  = () => {
 
     return (
-        <div className={s.input}>
+        <Container>
+            <List>
             <input
                 type="text"
                 name="type"
                 list="transactionsType"
                 autoComplete='off'
                 placeholder="type"
-                className={s.typeList}
                 value=''
             />
+            </List>
+           
             <datalist id="transactionsType">
                 <option value="- refill" />
                 <option value="- withdrawal" />
@@ -21,7 +33,7 @@ const TransactionsTypeList: React.FC  = () => {
                     <option value={transaction.title} key={transaction._id} />
                 ))} */}
             </datalist>
-        </div >
+        </Container >
     )
 }
 

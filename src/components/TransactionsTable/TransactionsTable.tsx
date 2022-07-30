@@ -1,138 +1,144 @@
 import React from 'react';
-import s from './TransactionsTable.module.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    border: 1px solid;
+    margin-top: 120px;
+    width: 100%;
+`
+
+const TableRow = styled.h1`
+    text-align: center;
+`
+
+
 
 const TransactionsTable: React.FC  = () => {
 
     return (
-        <div className={s.listScroll}>
-            <table className={s.transactionsListTable}>
+        <Container>
+            <table>
                 <thead>
-                    <tr className={s.transactionsList}>
+                    <tr>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s.transactionTitle}
                         >
                             Id
                         </th>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s}
                         >
                             Status
                         </th>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s}
                         >
                             Type
                         </th>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s}
                         >
                             Client name
                         </th>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s}
                         >
                             Amount
                         </th>
                         <th
                             style={{ borderBottom: '1px solid #E0E5EB' }}
-                            className={s}
                         >
                             Action
                         </th>
                     </tr>
                 </thead>
 
-                <tbody className={s.tableText}>
-                    <tr className={s.tableRow}>
+                <tbody>
+                    <TableRow>
+                    <tr>
                         {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
                             <Training className={s.marginBook} />
                             {title}
                         </td> */}
-                        <td className={s.tableBorder}>1</td>
-                        <td className={s.tableBorder}>pending</td>
-                        <td className={s.tableBorder}>refill</td>
-                        <td className={s.tableBorder}>name</td>
-                        <td className={s.tableBorder}>100.00</td>
+                        <td>1</td>
+                        <td>pending</td>
+                        <td>refill</td>
+                        <td>name</td>
+                        <td>100.00</td>
                         {/* {!isTraining && ( */}
-                        <td className={`${s.iconDelete} ${s.book} ${s.tableBorder}`}>
+                        <td>
                             <button
                                 type="button"
                                 // onClick={() => editTransactio(_id)}
-                                className={`${s.editBtn} ${s.tableBorder}`}
                             >
                                 Edit
                             </button>
                             <button
                                 type="button"
                                 // onClick={() => deleteTransactio(_id)}
-                                className={`${s.deleteBtn} ${s.tableBorder}`}
                             >
                                 Delete
                             </button>
                         </td>
                         {/* )} */}
                     </tr>
-                    <tr className={s.tableRow}>
+                    </TableRow>
+                    <TableRow>
+                    <tr>
                         {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
                             <Training className={s.marginBook} />
                             {title}
                         </td> */}
-                        <td className={s.tableBorder}>1</td>
-                        <td className={s.tableBorder}>pending</td>
-                        <td className={s.tableBorder}>refill</td>
-                        <td className={s.tableBorder}>name</td>
-                        <td className={s.tableBorder}>100.00</td>
+                        <td>1</td>
+                        <td>pending</td>
+                        <td>refill</td>
+                        <td>name</td>
+                        <td>100.00</td>
                         {/* {!isTraining && ( */}
-                        <td className={`${s.iconDelete} ${s.book} ${s.tableBorder}`}>
+                        <td>
                             <button
                                 type="button"
                                 // onClick={() => editTransactio(_id)}
-                                className={`${s.editBtn} ${s.tableBorder}`}
-                            >
-                                Edit
-                            </button><button
-                                type="button"
-                                // onClick={() => deleteTransactio(_id)}
-                                className={`${s.deleteBtn} ${s.tableBorder}`}
-                            >
-                                Delete
-                            </button>
-                        </td>
-                        {/* )} */}
-                    </tr>
-                    <tr className={s.tableRow}>
-                        {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
-                            <Training className={s.marginBook} />
-                            {title}
-                        </td> */}
-                        <td className={s.tableBorder}>1</td>
-                        <td className={s.tableBorder}>pending</td>
-                        <td className={s.tableBorder}>refill</td>
-                        <td className={s.tableBorder}>name</td>
-                        <td className={s.tableBorder}>100.00</td>
-                        {/* {!isTraining && ( */}
-                        <td className={`${s.iconDelete} ${s.book} ${s.tableBorder}`}>
-                            <button
-                                type="button"
-                                // onClick={() => editTransactio(_id)}
-                                className={`${s.editBtn} ${s.tableBorder}`}
                             >
                                 Edit
                             </button><button
                                 type="button"
                                 // onClick={() => deleteTransactio(_id)}
-                                className={`${s.deleteBtn} ${s.tableBorder}`}
                             >
                                 Delete
                             </button>
                         </td>
                         {/* )} */}
                     </tr>
+                    </TableRow>
+                    <TableRow>
+                    <tr>
+                        {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
+                            <Training className={s.marginBook} />
+                            {title}
+                        </td> */}
+                        <td>1</td>
+                        <td>pending</td>
+                        <td>refill</td>
+                        <td>name</td>
+                        <td>100.00</td>
+                        {/* {!isTraining && ( */}
+                        <td>
+                            <button
+                                type="button"
+                                // onClick={() => editTransactio(_id)}
+                            >
+                                Edit
+                            </button><button
+                                type="button"
+                                // onClick={() => deleteTransactio(_id)}
+                            >
+                                Delete
+                            </button>
+                        </td>
+                        {/* )} */}
+                    </tr>
+                    </TableRow>
                 </tbody>
 
                 {/* <tbody className={s.tableText}>
@@ -162,7 +168,7 @@ const TransactionsTable: React.FC  = () => {
                     )}
                 </tbody> */}
             </table>
-        </div >
+        </Container >
     )
 }
 

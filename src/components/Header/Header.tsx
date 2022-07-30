@@ -1,12 +1,20 @@
 import React from 'react';
-import s from './Header.module.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  border: 2px solid;
+`
+
+const Title = styled.h1`
+  text-align: center;
+`
 
 const Header: React.FC = () => {
 
     return (
-        <div className={s.container}>
-            <h1 className={s.title}>Transactions App</h1>
-        </div>
+        <Container>
+            <Title>Transactions App</Title>
+        </Container>
     )
 }
 
