@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import { Button } from 'react-bootstrap';
 
 const Container = styled.div`
   display: flex;
@@ -20,9 +21,11 @@ const Btn = styled.div`
 const ImportExportBtns: React.FC  = () => {
 
     return ( <Container>
+      {/* <Button> */}
         <Btn>
             <a href="/" download style={{ paddingLeft: '30px', textDecoration: 'none'}}>Import</a>
         </Btn>
+        {/* </Button> */}
         <Btn>
             <a href="/" download style={{ paddingLeft: '25px', textDecoration: 'none'}}>Export</a>
         </Btn>
