@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { deleteTransaction } from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
 
@@ -16,6 +16,8 @@ const TableRow = styled.div`
 `
 
 const TransactionsTable: React.FC  = ({transactions, addTransaction, deleteTransaction }) => {
+
+    const dispatch = useDispatch();
 
     const findTransaction = () => {
         return transactions.filter(transaction =>

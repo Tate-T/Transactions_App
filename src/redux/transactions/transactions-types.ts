@@ -2,6 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addTransactionApi, getTransactionApi, deleteTransactionApi } from "../../services/mockapi";
 import { addTransactionApiRequest, addTransactionSuccess, addTransactionError } from './transactions-actions';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // спосіб 1:
 
 export const addTransaction = (transaction) => {
@@ -31,5 +34,20 @@ export const deleteTransaction = createAsyncThunk('transactions/delete/:id', asy
         return id;
     } catch (error) {
         return thunkApi.rejectWithValue(error.message);
+    }
+});
+
+export const sendFilteredTransactions = createAsyncThunk('transactions/add', async (filteredTransactions, thunkApi) => {
+    try {
+        const addedFilteredTransactions = await addTransactionApi(filteredTransactions);
+        toast.success("Список транзакцій оновлено", {
+            theme: 'colored',
+            closeOnClick: true,
+            pauseOnHover: true,
+            autoClose: 2000,
+        });
+        return addedFilteredTransactions;
+    } catch (error) {
+        return thunkApi.rejectWithValue(toast.error("Список транзакцій НЕ оновлено"));
     }
 });

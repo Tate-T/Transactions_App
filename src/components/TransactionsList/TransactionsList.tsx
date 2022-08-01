@@ -1,6 +1,8 @@
 import React from 'react';
-import { TransactionsStatusList } from '../TransactionsStatusList/TransactionsStatusList';
-// import { ISelect } from '../../types/data';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { TransactionsForm } from '../TransactionsForm/TransactionsForm';
+import { ISelect } from '../../types/data';
+import {getTransactions} from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -24,25 +26,33 @@ const List = styled.ul`
     border-top: 2px solid;
 `
 
-// const ListItem = styled.h1`
-//     margin-left: 25px;
-// `
-let props: {
-    id: number;
-    title: string;
-    isSelect: boolean
-  }
-const TransactionsList: React.FC  = (props) => {
+const TransactionsList: React.FC<ISelect>  = (transactions) => {
    
+    const dispatch = useDispatch();
+    const isLoading: boolean = useSelector(state => state.transactions.isLoading);
+
     return (
         <Container>
             <Title>Transactions</Title>
             <List>
-                {/* {props.map(el=> <TransactionsStatusList key={el.id} {...el}/>)} */}
-                {/* <TransactionsStatusList /> */}
+                {transactions.map(transaction => <TransactionsForm key={transaction.id} {...transaction}/>)}
             </List>
         </Container>
     )
 }
 
-export  {TransactionsList};
+const mapStateToProps = state => {
+    return {
+        transactions: state.transactions,
+        filter: state.filter
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTransactions: (id) => dispatch(getTransactions(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsList);
+// export  {TransactionsList};

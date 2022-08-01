@@ -1,7 +1,10 @@
 export interface ISelect{
     id: number;
-    title: string;
-    isSelect: boolean
+    name: string;
+    status: string;
+    type: string;
+    amount: number;
+    action: boolean
 }
 
 //   {ISelect};
