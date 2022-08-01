@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { TransactionsForm } from '../TransactionsForm/TransactionsForm';
-import { ISelect } from '../../types/data';
+import { ITransaction } from '../../types/data';
 import {getTransactions} from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
 
@@ -26,10 +26,10 @@ const List = styled.ul`
     border-top: 2px solid;
 `
 
-const TransactionsList: React.FC<ISelect>  = (transactions) => {
+const TransactionsList: React.FC<{transactions: ITransaction[]}>  = (transactions) => {
    
     const dispatch = useDispatch();
-    const isLoading: boolean = useSelector(state => state.transactions.isLoading);
+    const isLoading: boolean = useSelector((state: ITransaction[]) => state.transactions.isLoading);
 
     return (
         <Container>
@@ -41,16 +41,16 @@ const TransactionsList: React.FC<ISelect>  = (transactions) => {
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: ITransaction[]) => {
     return {
         transactions: state.transactions,
         filter: state.filter
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: void) => {
     return {
-        getTransactions: (id) => dispatch(getTransactions(id))
+        getTransactions: (id: number) => dispatch(getTransactions(id))
     }
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { deleteTransaction } from '../../redux/transactions/transactions-types';
+import { getTransactions, deleteTransaction } from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
+import { ITransaction } from '../../types/data';
 
 const Container = styled.div`
     border: 1px solid;
@@ -15,17 +16,15 @@ const TableRow = styled.div`
     font-weight: 400;
 `
 
-const TransactionsTable: React.FC  = ({transactions, addTransaction, deleteTransaction }) => {
+const TransactionsTable:React.FC<{getTransactions: ITransaction[], deleteTransaction: ITransaction[]}> = (getTransactions, deleteTransaction) => {
 
     const dispatch = useDispatch();
 
-    const findTransaction = () => {
-        return transactions.filter(transaction =>
-            transaction.name.toLowerCase().includes(filter?.toLowerCase())
-        );
-    }
+    const transactions = getTransactions();
 
-    const editTransaction = ({transaction}) => {
+    const findTransaction = () => transactions.filter(transaction => transaction.name.toLowerCase() === transaction.id.toLowerCase()));
+
+    const editTransaction<{transaction: ITransaction}> = (transaction) => {
         return  [...transactions, transaction.id ];
     }
 

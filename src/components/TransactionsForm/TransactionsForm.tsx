@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm, UseFormSetValue } from 'react-hook-form';
 // import { useState } from 'react';
 // import uuid from 'uuid';
-import {ISelect} from '../../types/data';
+import {ITransaction} from '../../types/data';
 import { addToFilterState } from '../../redux/transactions/transactions-actions';
 import { sendFilteredTransactions } from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
@@ -26,18 +26,28 @@ const List = styled.div`
     display: block;
 `;
 
-const TransactionsForm: React.FC<ISelect>  = (filtered: ISelect, addToFilterState: void) => {
+const TransactionsForm: React.FC<{filtered: ITransaction[], addToFilterState: ITransaction[], sendFilteredTransactions: void}> = ({filtered, addToFilterState, sendFilteredTransactions}) => {
 
     const dispatch = useDispatch();
 
-    const { handleSubmit, reset } = useForm();
+    const { reset } = useForm();
+
+    const selectRef = React.createRef<HTMLInputElement>();
+    // const selectRef = useRef<HTMLInputElement>('input');
 
     // const { handleSubmit, formState, reset } = useForm();
     // const { errors } = formState;
 
-    const onSubmit = (filteredTransactions: ISelect) => {
-        dispatch(sendFilteredTransactions(filteredTransactions));
-    
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const {target: {value: selectedInput}} = e;
+        addToFilterState(selectedInput) 
+    };
+
+    const onSubmitForm = (e: React.FormEvent<HTMLFormElement>): void => {
+        const {target: {value: selectedInput}} = e;
+        if (selectedInput !== '') {
+        dispatch(sendFilteredTransactions(e));
+        }
         reset();
       };
 
@@ -61,7 +71,7 @@ const TransactionsForm: React.FC<ISelect>  = (filtered: ISelect, addToFilterStat
 
     return (
         <Container>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={onSubmitForm}>
             <TransactionsStatusList>
             <List>
             <input
@@ -70,9 +80,11 @@ const TransactionsForm: React.FC<ISelect>  = (filtered: ISelect, addToFilterStat
                 list="transactionsStatus"
                 autoComplete='off'
                 placeholder="status"
+                ref={selectRef}
                 // value={value}
                 value={filtered}
-                onChange={(e) => { addToFilterState(e.target.value) }}
+                // onChange={(e: React.MouseEvent<UseFormSetValue>) => { addToFilterState(e.target.value) }}
+                onChange={handleInputChange}
                 // onChange={e=> setValue(e.target.value)}
             />
             </List>
@@ -95,8 +107,10 @@ const TransactionsForm: React.FC<ISelect>  = (filtered: ISelect, addToFilterStat
                 list="transactionsType"
                 autoComplete='off'
                 placeholder="type"
+                ref={selectRef}
                 value={filtered}
-                onChange={(e) => { addToFilterState(e.target.value) }}
+                // onChange={(e: React.MouseEvent<HTMLSelectElement>) => { addToFilterState(e.target.value) }}
+                onChange={handleInputChange}
             />
             </List>
             <datalist id="transactionsType">
