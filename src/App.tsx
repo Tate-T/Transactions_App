@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import { getTransactions } from './redux/transactions/transactions-types';
 // import {ISelect} from './types/data';
 import {Header} from './components/Header/Header';
 import {TransactionsList} from './components/TransactionsList/TransactionsList';
@@ -12,6 +14,12 @@ let props: {
   isSelect: boolean
 }
 const App: React.FC = ()=> {
+
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getTransactions());
+    }, [dispatch]);
  
   return (
     <div className="App">
