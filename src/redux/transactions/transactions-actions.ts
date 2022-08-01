@@ -1,5 +1,9 @@
-const transactionsActions = () => {
-    console.log('0')
-}
+import { createAction } from "@reduxjs/toolkit";
 
-export default transactionsActions
+export const addToFilterState = createAction('transactions/addToFilterState');
+
+export const addTransactionApiRequest = createAction('addTransactionApiRequest');
+
+export const addTransactionSuccess = createAction('addTransactionSuccess');
+
+export const addTransactionError = createAction('addTransactionError');
