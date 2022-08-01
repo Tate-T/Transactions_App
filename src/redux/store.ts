@@ -1,10 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import transactionsReducer from './transactions/transactions-reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import {transactionsReducer, filterReducer, isLoadingReducer, errorReducer } from './transactions/transactions-reducer';
 
  const store = configureStore({
   reducer: {
     transactions: transactionsReducer,
+    filter: filterReducer,
+    isLoading: isLoadingReducer,
+    error: errorReducer
   },
+  devTools: process.env.NODE_ENV !== 'production', // true
 })
 
 export {store}
