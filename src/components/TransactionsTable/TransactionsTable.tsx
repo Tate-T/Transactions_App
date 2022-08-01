@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteTransaction } from '../../redux/transactions/transactions-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -13,9 +15,17 @@ const TableRow = styled.div`
     font-weight: 400;
 `
 
+const TransactionsTable: React.FC  = ({transactions, addTransaction, deleteTransaction }) => {
 
+    const findTransaction = () => {
+        return transactions.filter(transaction =>
+            transaction.name.toLowerCase().includes(filter?.toLowerCase())
+        );
+    }
 
-const TransactionsTable: React.FC  = () => {
+    const editTransaction = ({transaction}) => {
+        return  [...transactions, transaction.id ];
+    }
 
     return (
         <Container>
@@ -58,125 +68,53 @@ const TransactionsTable: React.FC  = () => {
                 </thead>
 
                 <tbody >
+                {findTransaction().map(
+                        ({ }, index) => (
                     <TableRow>
                     <tr >
-                        {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
-                            <Training className={s.marginBook} />
-                            {title}
-                        </td> */}
                         <td style={{ width: '100px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>1</td>
                         <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>pending</td>
                         <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>refill</td>
                         <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>name</td>
                         <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>100.00</td>
-                        {/* {!isTraining && ( */}
                         <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB', paddingBottom: '5px' }}>
                             <button
                                 type="button"
+                                onClick={() => editTransaction(id)}
                                 style={{ marginRight: '10px' }}
-                                // onClick={() => editTransactio(_id)}
                             >
                                 Edit
                             </button>
                             <button
                                 type="button"
-                                // onClick={() => deleteTransactio(_id)}
+                                onClick={() => deleteTransaction(id)}
                             >
                                 Delete
                             </button>
                         </td>
-                        {/* )} */}
                     </tr>
                     </TableRow>
-                    <TableRow>
-                    <tr>
-                        {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
-                            <Training className={s.marginBook} />
-                            {title}
-                        </td> */}
-                        <td style={{ width: '100px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>1</td>
-                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>pending</td>
-                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>refill</td>
-                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>name</td>
-                        <td style={{ width: '200px', textAlign: 'center', borderBottom: '1px solid #E0E5EB' }}>100.00</td>
-                        {/* {!isTraining && ( */}
-                        <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB', paddingBottom: '5px'  }}>
-                            <button
-                                type="button"
-                                style={{ marginRight: '10px' }}
-                                // onClick={() => editTransactio(_id)}
-                            >
-                                Edit
-                            </button><button
-                                type="button"
-                                // onClick={() => deleteTransactio(_id)}
-                            >
-                                Delete
-                            </button>
-                        </td>
-                        {/* )} */}
-                    </tr>
-                    </TableRow>
-                    <TableRow>
-                    <tr>
-                        {/* <td className={`${s.flexCenter} ${s.tableBorder}`}>
-                            <Training className={s.marginBook} />
-                            {title}
-                        </td> */}
-                        <td style={{ width: '100px', textAlign: 'center' }}>1</td>
-                        <td style={{ width: '200px', textAlign: 'center' }}>pending</td>
-                        <td style={{ width: '300px', textAlign: 'center' }}>refill</td>
-                        <td style={{ width: '300px', textAlign: 'center' }}>name</td>
-                        <td style={{ width: '200px', textAlign: 'center' }}>100.00</td>
-                        {/* {!isTraining && ( */}
-                        <td style={{ width: '300px', textAlign: 'center' }}>
-                            <button
-                                type="button"
-                                style={{ marginRight: '10px' }}
-                                // onClick={() => editTransactio(_id)}
-                            >
-                                Edit
-                            </button><button
-                                type="button"
-                                // onClick={() => deleteTransactio(_id)}
-                            >
-                                Delete
-                            </button>
-                        </td>
-                        {/* )} */}
-                    </tr>
-                    </TableRow>
-                </tbody>
-
-                {/* <tbody className={s.tableText}>
-                    {newTransactions.map(
-                        ({ }, index) => (
-                            <tr key={_id + index} className={s.fontSize}>
-                                <td className={`${s.flexCenter} ${s.tableBorder}`}>
-                                    <Training className={s.marginBook} />
-                                    {title}
-                                </td>
-                                <td className={s.tableBorder}>1</td>
-                                <td className={s.tableBorder}>2</td>
-                                <td className={s.tableBorder}>3</td>
-                                {!isTraining && (
-                                    <td className={`${s.iconDelete} ${s.book} ${s.tableBorder}`}>
-                                        <button
-                                            type="button"
-                                            onClick={() => deleteTransactio(_id)}
-                                            className={`${s.deleteBtn} ${s.tableBorder}`}
-                                        >
-                                            <Delete width="14" height="18" />
-                                        </button>
-                                    </td>
-                                )}
-                            </tr>
                         )
                     )}
-                </tbody> */}
+                </tbody>
             </table>
         </Container >
     )
 }
 
-export  {TransactionsTable};
+const mapStateToProps = state => {
+    return {
+        transactions: state.transactions,
+        filter: state.filter
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteTransactions: (id) => dispatch(deleteTransaction(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsTable);
+
+// export  {TransactionsTable};
