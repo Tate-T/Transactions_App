@@ -26,7 +26,7 @@ const List = styled.ul`
     border-top: 2px solid;
 `
 
-const TransactionsList: React.FC<{transactions: ITransaction[]}>  = (transactions) => {
+const TransactionsList: React.FC<{transactions: ITransaction[]}>  = (transactions): ITransaction[] => {
    
     const dispatch = useDispatch();
     const isLoading: boolean = useSelector((state: ITransaction[]) => state.transactions.isLoading);

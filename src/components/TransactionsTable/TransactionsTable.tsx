@@ -4,6 +4,8 @@ import { getTransactions, deleteTransaction } from '../../redux/transactions/tra
 import styled from 'styled-components';
 import { ITransaction } from '../../types/data';
 
+type stateTransactions = ITransaction[]
+
 const Container = styled.div`
     border: 1px solid;
     margin-top: 120px;
@@ -16,15 +18,15 @@ const TableRow = styled.div`
     font-weight: 400;
 `
 
-const TransactionsTable:React.FC<{getTransactions: ITransaction[], deleteTransaction: ITransaction[]}> = (getTransactions, deleteTransaction) => {
+const TransactionsTable:React.FC<{getTransactions: stateTransactions, deleteTransaction: stateTransactions}> = (getTransactions, deleteTransaction) => {
 
     const dispatch = useDispatch();
 
     const transactions = getTransactions();
 
-    const findTransaction = () => transactions.filter(transaction => transaction.name.toLowerCase() === transaction.id.toLowerCase()));
+    const findTransaction = () => transactions.filter(transaction => transaction.name.toLowerCase() === transaction.id.toLowerCase());
 
-    const editTransaction<{transaction: ITransaction}> = (transaction) => {
+    const editTransaction = (transaction) => {
         return  [...transactions, transaction.id ];
     }
 
@@ -81,14 +83,14 @@ const TransactionsTable:React.FC<{getTransactions: ITransaction[], deleteTransac
                         <td style={{ width: '300px', textAlign: 'center', borderBottom: '1px solid #E0E5EB', paddingBottom: '5px' }}>
                             <button
                                 type="button"
-                                onClick={() => editTransaction(id)}
+                                onClick={() => editTransaction(transactions.transaction.id)}
                                 style={{ marginRight: '10px' }}
                             >
                                 Edit
                             </button>
                             <button
                                 type="button"
-                                onClick={() => deleteTransaction(id)}
+                                onClick={() => deleteTransaction(transactions.transaction.id)}
                             >
                                 Delete
                             </button>

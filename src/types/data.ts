@@ -4,7 +4,10 @@ export interface ITransaction{
     status?: string;
     type?: string;
     amount?: number;
-    action?: boolean
+    action?: boolean;
+    isSelected?: boolean
 }
+
+export type Filter = string;
 
 //   {ISelect};
