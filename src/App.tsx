@@ -7,6 +7,9 @@ import {TransactionsForm} from './components/TransactionsForm/TransactionsForm';
 import {ImportExportBtns} from './components/ImportExportBtns/ImportExportBtns';
 import {TransactionsTable} from './components/TransactionsTable/TransactionsTable';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App: React.FC = ()=> {
 
   const dispatch = useDispatch();
@@ -28,6 +31,17 @@ const App: React.FC = ()=> {
           <TransactionsTable />
         </div>
       </div>
+      
+      <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover />
     </div>
   );
 }
